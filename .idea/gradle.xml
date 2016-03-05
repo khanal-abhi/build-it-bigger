@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/libjavajokes" />
+            <option value="$PROJECT_DIR$/libjokedisplay" />
           </set>
         </option>
       </GradleProjectSettings>
