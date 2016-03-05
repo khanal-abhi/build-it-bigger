@@ -10,7 +10,7 @@ public class JokesProvider {
         jokes = new ArrayList<>();
     }
 
-    public void populateJokes(){
+    public JokesProvider populateJokes(){
         jokes.add("Just changed my Facebook name to ‘No one' so when I see stupid posts I can click like and it will say ‘No one likes this'.");
         jokes.add("How do you make holy water? You boil the hell out of it.");
         jokes.add("I am a nobody, nobody is perfect, therefore I am perfect.");
@@ -21,6 +21,8 @@ public class JokesProvider {
         jokes.add("I used to like my neighbors, until they put a password on their Wi-Fi.");
         jokes.add("What's the difference between a smart man and a stupid man? Nothing. They both think they know everything.");
         jokes.add("Never argue with a fool, they will lower you to their level, and then beat you with experience.");
+
+        return this;
     }
 
     public List<String> getJokes(){
