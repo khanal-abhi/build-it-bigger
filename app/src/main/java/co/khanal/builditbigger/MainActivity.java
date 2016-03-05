@@ -1,5 +1,6 @@
 package co.khanal.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,7 @@ import com.google.android.gms.ads.AdView;
 import java.util.Random;
 
 import co.khanal.JokesProvider;
+import co.khanal.libjokedisplay.JokeDisplay;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 JokesProvider jokesProvider = new JokesProvider();
                 jokesProvider.populateJokes();
                 String joke = jokesProvider.getJokes().get(new Random().nextInt(10));
-                Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), JokeDisplay.class);
+                intent.putExtra(JokeDisplay.JOKE_KEY, joke);
+                startActivity(intent);
             }
         });
     }
