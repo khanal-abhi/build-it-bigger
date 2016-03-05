@@ -21,6 +21,15 @@ public class JokeFetcher extends AsyncTask<Context, Void, String> {
 
     private static MyApi myApi = null;
     private Context context;
+    private JokeFetcherListener listener;
+
+    public JokeFetcher(){
+
+    }
+
+    public JokeFetcher(JokeFetcherListener listener){
+        this.listener = listener;
+    }
 
     @Override
     protected String doInBackground(Context... params) {
@@ -48,9 +57,16 @@ public class JokeFetcher extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String joke) {
+
+        if(listener != null)
+            listener.onJokeFetched(joke);
         Intent intent = new Intent(context, JokeDisplay.class);
         intent.putExtra(JokeDisplay.JOKE_KEY, joke);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
+    }
+
+    public interface JokeFetcherListener{
+        void onJokeFetched(String joke);
     }
 }
