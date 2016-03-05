@@ -8,14 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-import java.util.Random;
-
-import co.khanal.JokesProvider;
 import co.khanal.libjokedisplay.JokeDisplay;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,13 +31,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                JokesProvider jokesProvider = new JokesProvider();
-                jokesProvider.populateJokes();
-                String joke = jokesProvider.getJokes().get(new Random().nextInt(10));
-//                Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), JokeDisplay.class);
-                intent.putExtra(JokeDisplay.JOKE_KEY, joke);
-                startActivity(intent);
+                new JokeFetcher().execute(getApplicationContext());
+
             }
         });
     }
