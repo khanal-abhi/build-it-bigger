@@ -11,13 +11,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="co.khanal.builditbigger.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    >
 
     <Button
         android:id="@+id/deliver_button"
         android:textSize="14sp"
         android:text="@string/button_label"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_below="@id/deliver_button"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <com.google.android.gms.ads.AdView
