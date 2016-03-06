@@ -16,6 +16,8 @@ import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeFetcherListener{
 
+    JokeFetcher jokeFetcher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,11 +25,16 @@ public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeF
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        jokeFetcher = new JokeFetcher(this);
+        jokeFetcher.setListener(this);
+
+
         ((Button) (findViewById(R.id.deliver_button))).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                new JokeFetcher(getApplicationContext()).execute();
+                progressBar.setVisibility(View.VISIBLE);
+                jokeFetcher.execute();
             }
         });
 

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeF
                 if (interstitialAd.isLoaded()) {
                     interstitialAd.show();
                 } else {
-                    new JokeFetcher(getApplicationContext()).execute();
+                    jokeFetcher.execute();
                 }
             }
         });
