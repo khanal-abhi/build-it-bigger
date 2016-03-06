@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeF
     ProgressBar progressBar;
     InterstitialAd interstitialAd;
     AdRequest adRequestIn;
+    JokeFetcher jokeFetcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +32,15 @@ public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeF
         final AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
+        jokeFetcher = new JokeFetcher(this);
+        jokeFetcher.setListener(this);
+
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         interstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
-                new JokeFetcher(getApplicationContext()).execute();
+                jokeFetcher.execute();
             }
 
             @Override
