@@ -28,7 +28,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     }
 
     public void testJokeFetcher() throws Exception{
-        JokeFetcher jokeFetcher = new JokeFetcher();
+        JokeFetcher jokeFetcher = new JokeFetcher(getContext());
         jokeFetcher.setListener(new JokeFetcher.JokeFetcherListener() {
             @Override
             public void onJokeFetched(String joke) {
@@ -36,7 +36,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
                 assertFalse(TextUtils.isEmpty(joke));
             }
         });
-        jokeFetcher.execute(getContext());
+        jokeFetcher.execute();
         signal.await(10, TimeUnit.SECONDS);
     }
 }

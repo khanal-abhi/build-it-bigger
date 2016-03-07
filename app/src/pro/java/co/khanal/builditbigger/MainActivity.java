@@ -9,13 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-
 public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeFetcherListener{
 
+    ProgressBar progressBar;
     JokeFetcher jokeFetcher;
 
     @Override
@@ -25,9 +21,9 @@ public class MainActivity extends AppCompatActivity implements JokeFetcher.JokeF
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         jokeFetcher = new JokeFetcher(this);
         jokeFetcher.setListener(this);
-
 
         ((Button) (findViewById(R.id.deliver_button))).setOnClickListener(new View.OnClickListener() {
             @Override
