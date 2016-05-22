@@ -134,3 +134,7 @@ To receive "exceeds specifications", my app must fully implement all of the foll
 * The free app variant displays interstitial ads between the main activity and the joke-displaying activity.
 * The app displays a loading indicator while the joke is being fetched from the server.
 * The root build.gradle file contains a task that will start up the GCE development server, run all Android tests, then shutdown the development server.
+
+### Screenshots:
+<img src="img/screenshot1.png width="200" />
+<img src="img/screenshot2.png width="200" />
